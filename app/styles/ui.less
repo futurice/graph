@@ -1,0 +1,23 @@
+/* The main UI stuff */
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: @blue-light;
+  text-decoration: underline;
+
+  &:visited {
+    color: @blue-light;
+  }
+
+  &:hover {
+    color: lighten(@blue-light, 30%);
+  }
+}
+
+th, td { text-align: center; padding: 0.1em 1em; }
+polygon { mix-blend-mode: normal; }
+svg text { font-family: sans-serif; }

@@ -1,0 +1,38 @@
+{
+  "name": "futurice-graph",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "bluebird": "^2.9.9",
+    "cyclejs": "^0.21.2",
+    "graph": "^0.2.0",
+    "lodash": "^3.8.0",
+    "proj4": "^2.3.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^5.1.1",
+    "browserify": "^10.1.3",
+    "chokidar-cli": "^0.2.1",
+    "less": "^2.5.0",
+    "node-static": "^0.7.6",
+    "watchify": "^3.2.1"
+  },
+  "scripts": {
+    "start": "./tools/tmux",
+    "serve": "static -a 0.0.0.0 -c 0 app",
+    "build": "npm run build-js && npm run build-less",
+    "build-js": "browserify app/scripts/main.js -o app/bundle.js",
+    "build-less": "lessc app/styles/main.less app/bundle.css && npm run autoprefixer",
+    "watch": "npm run watch-js & npm run watch-less",
+    "watch-js": "watchify app/scripts/main.js -d -o app/bundle.js -v",
+    "watch-less": "chokidar -c 'npm run build-less' '**/*.less'",
+    "autoprefixer": "autoprefixer app/bundle.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/futurice/graph.git"
+  },
+  "license": "MIT"
+}
